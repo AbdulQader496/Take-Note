@@ -1,15 +1,20 @@
+import 'package:flt_keep/screen/camToText.dart';
+import 'package:flt_keep/screen/drawToWrite.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
-
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:flt_keep/icons.dart' show AppIcons;
 import 'package:flt_keep/models.dart' show CurrentUser, Note, NoteState, NoteStateX, NoteFilter;
 import 'package:flt_keep/services.dart' show notesCollection, CommandHandler;
 import 'package:flt_keep/styles.dart';
 import 'package:flt_keep/utils.dart';
 import 'package:flt_keep/widgets.dart' show AppDrawer, NotesGrid, NotesList;
+import 'package:flt_keep/screen/voiceToText.dart';
+import 'package:flt_keep/screen/drawToWrite.dart';
+import 'package:flt_keep/screen/camToText.dart';
 
 /// Home screen, displays [Note] grid or list.
 class HomeScreen extends StatefulWidget {
@@ -151,13 +156,49 @@ class _HomeScreenState extends State<HomeScreen> with CommandHandler {
       padding: const EdgeInsets.symmetric(horizontal: 17),
       child: Row(
         children: <Widget>[
-          const Icon(AppIcons.checkbox, size: 26, color: kIconTintLight),
+
+
+           IconButton(
+            icon: Icon(Icons.brush_sharp),
+            iconSize: 26.0,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => drawToWrite()),
+              );
+            },
+          ),
+
+
           const SizedBox(width: 30),
-          const Icon(AppIcons.brush_sharp, size: 26, color: kIconTintLight),
+           IconButton(
+            icon: Icon(Icons.mic),
+            iconSize: 26.0,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SpeechScreen()),
+              );
+            },
+          ),
+
+
+
+
+
+
           const SizedBox(width: 30),
-          const Icon(AppIcons.mic, size: 26, color: kIconTintLight),
-          const SizedBox(width: 30),
-          const Icon(AppIcons.insert_photo, size: 26, color: kIconTintLight),
+           IconButton(
+            icon: Icon(Icons.camera_alt),
+            iconSize: 26.0,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => textRecog()),
+              );
+            },
+
+          ),
         ],
       ),
     ),
@@ -165,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> with CommandHandler {
 
   Widget _fab(BuildContext context) => FloatingActionButton(
     backgroundColor: Theme.of(context).accentColor,
-    child: const Icon(Icons.add),
+    child: const Icon(Icons.article_outlined),
     onPressed: () async {
       final command = await Navigator.pushNamed(context, '/note');
       debugPrint('--- noteEditor result: $command');
