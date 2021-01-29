@@ -2,8 +2,8 @@ import 'package:collection_ext/iterables.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flt_keep/models.dart' show Note;
-import 'package:flt_keep/styles.dart';
+import 'package:note/models.dart' show Note;
+import 'package:note/styles.dart';
 
 /// Note color picker in a horizontal list style.
 class LinearColorPicker extends StatelessWidget {

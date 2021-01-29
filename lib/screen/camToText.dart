@@ -1,80 +1,45 @@
-import 'dart:io';
+import 'package:note/screen/widget/text_recognition_widget.dart';
+
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 
+class TextRecognition extends StatelessWidget {
+  final String title = 'Text Recognition';
 
-
-class textRecog extends StatefulWidget {
   @override
-  _textRecogState createState() => _textRecogState();
+  Widget build(BuildContext context) => MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: title,
+    theme: ThemeData(primarySwatch: Colors.blue),
+    home: TextRecog(title: title),
+  );
 }
 
-class _textRecogState extends State<textRecog> {
-  File pickedImage;
-  bool isImageLoaded = false;
-  String w="";
+class TextRecog extends StatefulWidget {
+  final String title;
 
-  Future pickImage() async {
-    // ignore: deprecated_member_use
-    var tempStore = await ImagePicker.pickImage(source: ImageSource.gallery);
-
-    setState(() {
-      pickedImage = tempStore;
-      isImageLoaded = true;
-    });
-  }
-
-  Future readText() async {
-    FirebaseVisionImage ourImage = FirebaseVisionImage.fromFile(pickedImage);
-    TextRecognizer recognizeText = FirebaseVision.instance.textRecognizer();
-    VisionText readText = await recognizeText.processImage(ourImage);
-
-    for (TextBlock block in readText.blocks) {
-      for (TextLine line in block.lines) {
-        for (TextElement word in line.elements) {
-
-          print(word.text);
-        }
-      }
-    }
-  }
+  const TextRecog({
+    @required this.title,
+  });
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          isImageLoaded
-              ? Center(
-            child: Container(
-              //padding: EdgeInsets.all(30),
-              height: 200.0,
-              width: 200.0,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: FileImage(pickedImage), fit: BoxFit.cover),
-              ),
-            ),
-          )
-              : Container(),
+  _TextRecogState createState() => _TextRecogState();
+}
 
-          SizedBox(height: 250.0),
-          RaisedButton(
-            child: Text("Pick an image"),
-            onPressed: pickImage,
-
-          ),
-          SizedBox(height: 10.0),
-          RaisedButton(
-            child: Text("Read Text"),
-            onPressed: readText,
-          ),
-          Container(
-            child: Text(""+ w),
-          )
+class _TextRecogState extends State<TextRecog> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Padding(
+      padding: const EdgeInsets.all(8),
+      child: Column(
+        children: [
+          const SizedBox(height: 25),
+          TextRecognitionWidget(),
+          const SizedBox(height: 15),
         ],
       ),
-    );
-  }
+    ),
+  );
 }

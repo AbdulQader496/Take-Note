@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flt_keep/icons.dart';
-import 'package:flt_keep/models.dart';
-import 'package:flt_keep/services.dart';
-import 'package:flt_keep/styles.dart';
+import 'package:note/icons.dart';
+import 'package:note/models.dart';
+import 'package:note/services.dart';
+import 'package:note/styles.dart';
 
 /// Provide actions for a single [Note], used in a [BottomSheet].
 class NoteActions extends StatelessWidget {

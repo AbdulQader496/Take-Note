@@ -8,3 +8,6 @@ version:
   channel: unknown
 
 project_type: app
+<meta-data
+        android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+        android:value="ocr,text" />

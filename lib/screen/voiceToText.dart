@@ -4,12 +4,26 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 
-class SpeechScreen extends StatefulWidget {
+class SpeechScreen extends StatelessWidget {
   @override
-  _SpeechScreenState createState() => _SpeechScreenState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: SpeechToText(),
+    );
+  }
 }
 
-class _SpeechScreenState extends State<SpeechScreen> {
+class SpeechToText extends StatefulWidget {
+  @override
+  _SpeechToTextState createState() => _SpeechToTextState();
+}
+
+class _SpeechToTextState extends State<SpeechToText> {
 
 
   stt.SpeechToText _speech;
@@ -27,7 +41,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Confidence: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
+        title: Text('Accuracy: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: AvatarGlow(

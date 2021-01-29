@@ -1,20 +1,20 @@
-import 'package:flt_keep/screen/camToText.dart';
-import 'package:flt_keep/screen/drawToWrite.dart';
+import 'package:note/screen/camToText.dart';
+import 'package:note/screen/drawToWrite.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
-import 'package:speech_to_text/speech_to_text.dart' as stt;
-import 'package:flt_keep/icons.dart' show AppIcons;
-import 'package:flt_keep/models.dart' show CurrentUser, Note, NoteState, NoteStateX, NoteFilter;
-import 'package:flt_keep/services.dart' show notesCollection, CommandHandler;
-import 'package:flt_keep/styles.dart';
-import 'package:flt_keep/utils.dart';
-import 'package:flt_keep/widgets.dart' show AppDrawer, NotesGrid, NotesList;
-import 'package:flt_keep/screen/voiceToText.dart';
-import 'package:flt_keep/screen/drawToWrite.dart';
-import 'package:flt_keep/screen/camToText.dart';
+
+import 'package:note/icons.dart' show AppIcons;
+import 'package:note/models.dart' show CurrentUser, Note, NoteState, NoteStateX, NoteFilter;
+import 'package:note/services.dart' show notesCollection, CommandHandler;
+import 'package:note/styles.dart';
+import 'package:note/utils.dart';
+import 'package:note/widgets.dart' show AppDrawer, NotesGrid, NotesList;
+import 'package:note/screen/voiceToText.dart';
+import 'package:note/screen/drawToWrite.dart';
+import 'package:note/screen/camToText.dart';
 
 /// Home screen, displays [Note] grid or list.
 class HomeScreen extends StatefulWidget {
@@ -194,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> with CommandHandler {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => textRecog()),
+                MaterialPageRoute(builder: (context) => TextRecognition()),
               );
             },
 

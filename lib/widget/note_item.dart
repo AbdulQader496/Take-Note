@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flt_keep/model/note.dart';
-import 'package:flt_keep/styles.dart';
+import 'package:note/model/note.dart';
+import 'package:note/styles.dart';
 
 /// A single item (preview of a Note) in the Notes list.
 class NoteItem extends StatelessWidget {

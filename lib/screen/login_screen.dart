@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart' show GoogleSignIn;
 
-import 'package:flt_keep/styles.dart';
+import 'package:note/styles.dart';
 
 /// Login screen.
 class LoginScreen extends StatefulWidget {

@@ -2,10 +2,10 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:flt_keep/models.dart';
-import 'package:flt_keep/icons.dart';
-import 'package:flt_keep/styles.dart';
-import 'package:flt_keep/utils.dart';
+import 'package:note/models.dart';
+import 'package:note/icons.dart';
+import 'package:note/styles.dart';
+import 'package:note/utils.dart';
 
 import 'drawer_filter.dart';
 
@@ -62,7 +62,7 @@ class AppDrawer extends StatelessWidget {
           DrawerFilterItem(
             icon: Icons.help_outline,
             title: 'About',
-            onTap: () => launch('https://github.com/xinthink/flutter-keep'),
+            onTap: () => launch('https://github.com/AbdulQader496/note2'),
           ),
         ],
       ),
@@ -82,14 +82,14 @@ class AppDrawer extends StatelessWidget {
           ),
           children: [
             const TextSpan(
-              text: 'Flt',
+              text: 'Take',
               style: TextStyle(
                 color: kAccentColorLight,
                 fontWeight: FontWeights.medium,
                 fontStyle: FontStyle.italic,
               ),
             ),
-            const TextSpan(text: ' Keep'),
+            const TextSpan(text: ' Notes'),
           ],
         ),
       ),

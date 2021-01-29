@@ -1,6 +1,6 @@
 import 'package:collection_ext/iterables.dart';
 import 'package:flutter/material.dart';
-import 'package:flt_keep/model/note.dart';
+import 'package:note/model/note.dart';
 
 import 'note_item.dart';
 

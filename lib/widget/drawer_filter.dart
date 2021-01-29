@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flt_keep/styles.dart';
+import 'package:note/styles.dart';
 
 /// A single filter in the drawer's filters list.
 class DrawerFilterItem extends StatelessWidget {
