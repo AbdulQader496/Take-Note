@@ -1,5 +1,5 @@
 import 'package:note/screen/camToText.dart';
-import 'package:note/screen/drawToWrite.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,7 +13,7 @@ import 'package:note/styles.dart';
 import 'package:note/utils.dart';
 import 'package:note/widgets.dart' show AppDrawer, NotesGrid, NotesList;
 import 'package:note/screen/voiceToText.dart';
-import 'package:note/screen/drawToWrite.dart';
+
 import 'package:note/screen/camToText.dart';
 
 /// Home screen, displays [Note] grid or list.
@@ -156,33 +156,6 @@ class _HomeScreenState extends State<HomeScreen> with CommandHandler {
       padding: const EdgeInsets.symmetric(horizontal: 17),
       child: Row(
         children: <Widget>[
-
-
-           IconButton(
-            icon: Icon(Icons.brush_sharp),
-            iconSize: 26.0,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => drawToWrite()),
-              );
-            },
-          ),
-
-
-          const SizedBox(width: 30),
-           IconButton(
-            icon: Icon(Icons.mic),
-            iconSize: 26.0,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SpeechScreen()),
-              );
-            },
-          ),
-
-
 
 
 
