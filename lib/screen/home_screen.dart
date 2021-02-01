@@ -14,7 +14,7 @@ import 'package:note/utils.dart';
 import 'package:note/widgets.dart' show AppDrawer, NotesGrid, NotesList;
 import 'package:note/screen/voiceToText.dart';
 
-import 'package:note/screen/camToText.dart';
+
 
 /// Home screen, displays [Note] grid or list.
 class HomeScreen extends StatefulWidget {
@@ -160,9 +160,9 @@ class _HomeScreenState extends State<HomeScreen> with CommandHandler {
 
 
 
-          const SizedBox(width: 30),
+
            IconButton(
-            icon: Icon(Icons.camera_alt),
+            icon: Icon(Icons.image),
             iconSize: 26.0,
             onPressed: () {
               Navigator.push(
@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> with CommandHandler {
     final url = Provider.of<CurrentUser>(context)?.data?.photoUrl;
     return CircleAvatar(
       backgroundImage: url != null ? NetworkImage(url) : null,
-      child: url == null ? const Icon(Icons.face) : null,
+      child: url == null ? const Icon(Icons.face_outlined) : null,
       radius: isNotAndroid ? 19 : 17,
     );
   }

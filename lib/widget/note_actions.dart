@@ -69,10 +69,7 @@ class NoteActions extends StatelessWidget {
             to: NoteState.unspecified,
           )),
         ),
-        ListTile(
-          leading: const Icon(AppIcons.share_outlined),
-          title: Text('Send', style: textStyle),
-        ),
+
       ],
     );
   }

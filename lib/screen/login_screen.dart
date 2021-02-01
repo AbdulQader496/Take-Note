@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, AuthResult, GoogleAuthProvider;
+import 'package:firebase_auth/firebase_auth.dart' show AuthCredential, AuthResult, FirebaseAuth, FirebaseUser, GoogleAuthProvider;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_sign_in/google_sign_in.dart' show GoogleSignIn;
+import 'package:google_sign_in/google_sign_in.dart' show GoogleSignIn, GoogleSignInAccount, GoogleSignInAuthentication;
 
 import 'package:note/styles.dart';
 
@@ -13,6 +13,10 @@ class LoginScreen extends StatefulWidget {
 
 /// State for [LoginScreen].
 class _LoginScreenState extends State<LoginScreen> {
+
+
+
+
   final _auth = FirebaseAuth.instance;
   final _googleSignIn = GoogleSignIn();
 
@@ -53,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   Image.asset('assets/images/thumbtack_intro.png'),
                   const SizedBox(height: 32),
-                  const Text('Capture anything',
+                  const Text('Take Note of Anything',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeights.medium,
@@ -73,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
   );
 
   List<Widget> _buildGoogleSignInFields() => [
-    RaisedButton(
+    /*RaisedButton(
       padding: const EdgeInsets.all(0),
       onPressed: _signInWithGoogle,
       child: Row(
@@ -86,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ],
       ),
-    ),
+    ),*/
     FlatButton(
       child: Text('Sign in with email'),
       onPressed: () => setState(() {
@@ -120,12 +124,12 @@ class _LoginScreenState extends State<LoginScreen> {
     const SizedBox(height: 16),
     _buildEmailSignInButton(),
     if (_loggingIn) const LinearProgressIndicator(),
-    FlatButton(
-      child: Text('Use Google Sign In'),
+    /*FlatButton(
+      child: Text(''),
       onPressed: () => setState(() {
         _useEmailSignIn = false;
       }),
-    ),
+    ),*/
   ];
 
   Widget _buildEmailSignInButton() => RaisedButton(
@@ -148,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
     ),
   );
 
-  void _signInWithGoogle() async {
+  /*void _signInWithGoogle() async {
     _setLoggingIn();
     String errMsg;
 
@@ -166,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } finally {
       _setLoggingIn(false, errMsg);
     }
-  }
+  }*/
 
   void _signInWithEmail() async {
     if (_loginForm.currentState?.validate() != true) return;

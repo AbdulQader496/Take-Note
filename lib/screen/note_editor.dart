@@ -176,11 +176,7 @@ class _NoteEditorState extends State<NoteEditor> with CommandHandler {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          IconButton(
-              icon: const Icon(AppIcons.add_box),
-              color: kIconTintLight,
-              onPressed: _note.state.canEdit ? () {} : null,
-          ),
+
           Text('Edited ${_note.strLastModified}'),
           IconButton(
             icon: const Icon(Icons.more_vert),
